@@ -2,13 +2,17 @@ import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
+import { useState } from "react";
+import Album from "./pages/Album";
 
 function App() {
+
   return (
-    <div className="mx-auto w-4/5 md:w-2/3">
+    <div className="mx-auto w-4/5 md:w-2/4">
       <NavBar /> 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/album/:id_album" element={<Album />} />
       </Routes>
     </div>
   );

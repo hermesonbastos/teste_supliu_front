@@ -11,3 +11,36 @@ export function ALBUNS_GET() {
     }
   }
 }
+
+export function ALBUM_GET({ id_album }) {
+  return {
+    url: API_URL + `/albuns/${id_album}`,
+    options: {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    }
+  }
+}
+
+export function ALBUM_FAIXAS_GET({ id_album }) {
+  return {
+    url: API_URL + `/albuns/${id_album}/faixas`,
+    options: {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    }
+  }
+}
+
+export function FAIXA_DELETE({ id_faixa }) {
+  return {
+    url: API_URL + `/faixas/${id_faixa}`,
+    options: {
+      method: "DELETE",
+    }
+  }
+}
