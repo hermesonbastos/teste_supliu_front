@@ -1,8 +1,7 @@
 import "./App.css";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
-import { useState } from "react";
 import Album from "./pages/Album";
 
 function App() {

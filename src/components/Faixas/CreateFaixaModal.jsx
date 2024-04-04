@@ -9,7 +9,7 @@ import useFetch from "../../hooks/useFetch";
 const CreateFaixaModal = ({ setModal, album_id, reFetch }) => {
 
   const nome = useForm("nome");
-  const { error, loading, request } = useFetch();
+  const { request } = useFetch();
 
   function handleSubmit(event) {
     event.preventDefault();

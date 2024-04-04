@@ -10,7 +10,7 @@ const CreateAlbumModal = ({ setModal, reFetch }) => {
 
   const nome = useForm("nome");
   const ano = useForm("ano");
-  const { error, loading, request } = useFetch();
+  const { request } = useFetch();
 
   function handleSubmit(event) {
     event.preventDefault();
