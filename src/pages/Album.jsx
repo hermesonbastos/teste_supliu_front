@@ -36,7 +36,7 @@ const Album = () => {
   if (!faixas || !album) return <p>loading...</p>;
   else
     return (
-      <div className="flex flex-col items-center pt-56 lg:flex-row lg:items-start gap-8">
+      <div className="flex flex-col w-full items-start pt-56 lg:flex-row gap-8">
         {faixaModal && (
           <CreateFaixaModal
             setModal={setFaixaModal}
@@ -44,7 +44,7 @@ const Album = () => {
             reFetch={fetchAlbumFaixas}
           />
         )}
-        <div className="flex flex-col gap-4 text-center items-center lg:text-start">
+        <div className="flex w-full items-center flex-col gap-4 text-center lg:items-start lg:w-1/3">
           <div className="flex items-start w-full">
             <Link to="/">
               <button className="btn btn-circle hover:bg-secondary hover:text-white">
@@ -52,7 +52,7 @@ const Album = () => {
               </button>
             </Link>
           </div>
-          <div>
+          <div className="text-center lg:text-start">
             <h1 className="text-3xl font-bold text-pretty">{album.nome}</h1>
             <h2 className="text-xl text-pretty">{album.ano}</h2>
           </div>
@@ -60,11 +60,11 @@ const Album = () => {
             Adicionar Faixa <Plus />
           </Button>
         </div>
-        <div className="w-full my-auto mt-6 lg:mt-0">
+        <div className="flex w-full mt-6 lg:mt-0">
           {faixas.length > 0 ? (
             <Faixas faixas={faixas} fetchAlbumFaixas={fetchAlbumFaixas} />
           ) : (
-            <div className="flex flex-col h-full w-full items-center justify-center">
+            <div className="flex flex-col items-center w-full">
               <p className="text-lg font-medium">Nenhuma faixa</p>
               <Frown />
             </div>

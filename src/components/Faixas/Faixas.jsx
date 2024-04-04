@@ -18,7 +18,7 @@ const Faixas = ({ faixas, fetchAlbumFaixas }) => {
   );
 
   return (
-    <ul className="flex flex-col gap-2 mb-12">
+    <ul className="flex w-full flex-col gap-2 mb-12">
       <input
         className="input input-bordered input-primary w-full"
         placeholder="Buscar faixa"
