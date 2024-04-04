@@ -37,7 +37,7 @@ const Album = () => {
   if (!faixas || !album) return <p>loading...</p>;
   else
     return (
-      <div className="flex flex-col w-full items-center pt-56 lg:flex-row gap-8">
+      <div className="flex items-center flex-col w-full lg:items-start pt-24 lg:flex-row gap-8">
         {faixaModal && (
           <CreateFaixaModal
             setModal={setFaixaModal}
