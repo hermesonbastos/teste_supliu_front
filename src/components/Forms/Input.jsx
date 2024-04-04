@@ -7,7 +7,7 @@ const Input = ({ label, type, name, value, onChange, error, onBlur }) => {
         {label}
       </label>
       <input
-        className="input input-bordered input-primary w-full"
+        className="input input-bordered input-primary w-full mt-1"
         id={name}
         name={name}
         value={value}

@@ -70,3 +70,24 @@ export function ALBUM_POST(body) {
     }
   }
 }
+
+export function ALBUM_DELETE(id_album) {
+  return {
+    url: API_URL + `/albuns/${id_album}`,
+    options: {
+      method: "DELETE",
+    }
+  }
+}
+
+export function ALBUNS_FAIXAS_GET() {
+  return {
+    url: API_URL + '/with-faixas',
+    options: {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    }
+  }
+}
