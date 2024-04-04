@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Music2, Trash2 } from "lucide-react";
 import { FAIXA_DELETE } from "../../api";
 import useFetch from "../../hooks/useFetch";
+import Loading from "../Helper/Loading";
 
 const Faixas = ({ faixas, fetchAlbumFaixas }) => {
   const [busca, setBusca] = useState("");
@@ -25,7 +26,7 @@ const Faixas = ({ faixas, fetchAlbumFaixas }) => {
         value={busca}
         onChange={({ target }) => setBusca(target.value)}
       />
-      {filteredFaixas &&
+      {filteredFaixas ?
         filteredFaixas.map((faixa, index) => (
           <li className="" key={index}>
             <div className="flex gap-4 border-solid border-2 border-primary justify-between py-3 px-4 rounded-lg">
@@ -41,7 +42,7 @@ const Faixas = ({ faixas, fetchAlbumFaixas }) => {
               </button>
             </div>
           </li>
-        ))}
+        )) : (<Loading />)}
     </ul>
   );
 };

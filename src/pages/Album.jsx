@@ -8,6 +8,7 @@ import Faixas from "../components/Faixas/Faixas";
 import CreateFaixaModal from "../components/Faixas/CreateFaixaModal";
 import Button from "../components/Forms/Button";
 import Warning from "../components/Helper/Warning";
+import Loading from "../components/Helper/Loading";
 
 const Album = () => {
   const { id_album } = useParams();
@@ -34,7 +35,7 @@ const Album = () => {
     fetchAlbum();
   }, []);
 
-  if (!faixas || !album) return <p>loading...</p>;
+  if (!faixas || !album) return <Loading />;
   else
     return (
       <div className="flex items-center flex-col w-full lg:items-start pt-24 lg:flex-row gap-8">

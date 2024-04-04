@@ -5,11 +5,12 @@ import Button from "../Forms/Button";
 import useForm from "../../hooks/useForm";
 import { FAIXA_POST } from "../../api";
 import useFetch from "../../hooks/useFetch";
+import Loading from "../Helper/Loading";
 
 const CreateFaixaModal = ({ setModal, album_id, reFetch }) => {
 
   const nome = useForm("nome");
-  const { request } = useFetch();
+  const { request, loading } = useFetch();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -27,7 +28,7 @@ const CreateFaixaModal = ({ setModal, album_id, reFetch }) => {
 
   return (
     <div className="flex fixed justify-center items-center top-0 left-0 w-full h-full bg-black/40 z-100 px-8 py-4 md:px-16 md:py-8 z-50">
-      <div className="flex flex-col  w-96 bg-white rounded-lg p-4">
+      {!loading ? (<div className="flex flex-col  w-96 bg-white rounded-lg p-4">
         <div className="flex justify-between items-center">
           <h2 className="text-lg font-bold">Nova Faixa</h2>
           <button
@@ -41,7 +42,8 @@ const CreateFaixaModal = ({ setModal, album_id, reFetch }) => {
           <Input label="Nome da faixa" type="text" name="nome" {...nome} />
           <Button full={1}>Adicionar</Button>
         </form>
-      </div>
+      </div>) : (<Loading />)}
+      
     </div>
   );
 };
