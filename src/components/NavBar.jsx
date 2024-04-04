@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Github } from "lucide-react";
+import githubIcon from "../../public/github.png";
 
 const NavBar = () => {
   return (
@@ -25,10 +25,10 @@ const NavBar = () => {
         </div>
         <a
           href="https://github.com/hermesonbastos"
-          className="link"
+          className="w-6 link flex items-center justify-center"
           target="_blank"
         >
-          <Github />
+          <img src={githubIcon} className="w-full" alt="Perfil do GitHub" />
         </a>
       </div>
     </div>
