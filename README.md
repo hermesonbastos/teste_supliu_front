@@ -13,7 +13,7 @@ Este projeto utiliza as seguintes tecnologias:
 2. Clone este repositório.
 3. Navegue até a pasta raiz do projeto e execute o comando `npm install`.
 4. Inicie o servidor de desenvolvimento com o comando `npm run dev`.
-5. Abra o navegador em `http://localhost:3000`.
+5. Abra o navegador em `http://localhost:5173`.
 
 **Motivações por trás das tecnologias escolhidas:**
 
