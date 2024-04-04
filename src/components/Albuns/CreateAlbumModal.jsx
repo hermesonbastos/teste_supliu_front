@@ -2,15 +2,28 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 import Input from "../Forms/Input";
 import Button from "../Forms/Button";
-import { useForm } from "react-hook-form";
+import useForm from "../../hooks/useForm";
+import { FAIXA_POST } from "../../api";
+import useFetch from "../../hooks/useFetch";
 
-const CreateAlbumModal = ({ setModal }) => {
+const CreateAlbumModal = ({ setModal, album_id, reFetch }) => {
 
   const nome = useForm("nome");
+  const { error, loading, request } = useFetch();
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("oi")
+
+    console.log(nome, album_id);
+    
+    async function createFaixa() {
+      const { url, options } = FAIXA_POST({ "nome": nome.value, "album_id": album_id });
+      await request(url, options);
+      reFetch();
+      setModal(false);
+    }
+
+    createFaixa();
   }
 
   return (

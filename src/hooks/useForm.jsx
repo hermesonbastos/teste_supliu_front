@@ -1,9 +1,7 @@
 import React from "react";
 
 const types = {
-  nome: {
-    message: "Nome inválido",
-  }
+
 };
 
 const useForm = (type) => {
@@ -13,7 +11,7 @@ const useForm = (type) => {
   function validate(value) {
     if (type === false) return true;
     if (value.length === 0) {
-      setError("Preencha um valor.");
+      setError("Preencha um valor");
       return false;
     } else if (types[type] && !types[type].regex.test(value)) {
       setError(types[type].message);

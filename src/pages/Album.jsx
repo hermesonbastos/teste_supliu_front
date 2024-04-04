@@ -36,7 +36,7 @@ const Album = () => {
   else
     return (
       <div className="flex pt-56">
-        {albumModal && (<CreateAlbumModal setModal={setAlbumModal} />)}
+        {albumModal && (<CreateAlbumModal setModal={setAlbumModal} album_id={id_album} reFetch={fetchAlbumFaixas} />)}
         <div className="flex flex-col gap-4">
           <div>
             <h1 className="text-3xl font-bold text-pretty">{album.nome}</h1>
