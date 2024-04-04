@@ -5,18 +5,20 @@ import { ALBUNS_GET } from "../../api";
 import Button from "../Forms/Button";
 import { Plus } from "lucide-react";
 import { Link } from "react-router-dom";
+import CreateAlbumModal from "./CreateAlbumModal";
 
 const Albuns = () => {
   const [albuns, setAlbuns] = useState(null);
-  const { data, request, loading, error } = useFetch();
+  const [albumModal, setAlbumModal] = useState(false);
+  const { request, loading } = useFetch();
+
+  async function fetchAlbuns() {
+    const { url, options } = ALBUNS_GET();
+    const { json } = await request(url, options);
+    setAlbuns(json);
+  }
 
   useEffect(() => {
-    async function fetchAlbuns() {
-      const { url, options } = ALBUNS_GET();
-      const { response, json } = await request(url, options);
-      setAlbuns(json);
-    }
-
     fetchAlbuns();
   }, []);
 
@@ -24,8 +26,14 @@ const Albuns = () => {
   else
     return (
       <div className="mt-12">
+        {albumModal && (
+          <CreateAlbumModal
+            setModal={setAlbumModal}
+            reFetch={fetchAlbuns}
+          />
+        )}
         <div className="flex justify-end py-3 mx-4">
-          <Button>
+          <Button onClick={() => setAlbumModal(true)} style="btn-primary">
             Adicionar novo Álbum <Plus />
           </Button>
         </div>

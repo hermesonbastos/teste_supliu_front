@@ -21,7 +21,7 @@ const Faixas = ({ faixas, fetchAlbumFaixas }) => {
             <div className="flex gap-4 border-solid border-2 border-primary justify-between py-3 px-4 rounded-lg">
               <div className="flex gap-3 items-center">
                 <Music2 className="self-center" size={16} />
-                <p className="text-nowrap">{faixa.nome}</p>
+                <p>{faixa.nome}</p>
               </div>
               <button
                 onClick={() => deleteFaixa(faixa.id)}

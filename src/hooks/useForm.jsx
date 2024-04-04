@@ -1,7 +1,10 @@
 import React from "react";
 
 const types = {
-
+  ano: {
+    regex: /^(19|20)\d{2}$/,
+    message: "Preencha com um ano válido",
+  }
 };
 
 const useForm = (type) => {

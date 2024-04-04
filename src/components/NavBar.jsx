@@ -13,13 +13,23 @@ const NavBar = () => {
       <div className="flex gap-1">
         <div className="flex">
           <p className="hidden lg:block">
-            Desenvolvido por{" "}
-            <a href="https://github.com/hermesonbastos" className="link" target="_blank">
+            Dev.by{"  "}
+            <a
+              href="https://github.com/hermesonbastos"
+              className="link"
+              target="_blank"
+            >
               hermesonbastos
             </a>
           </p>
         </div>
-        <Github />
+        <a
+          href="https://github.com/hermesonbastos"
+          className="link"
+          target="_blank"
+        >
+          <Github />
+        </a>
       </div>
     </div>
   );

@@ -57,3 +57,16 @@ export function FAIXA_POST(body) {
     }
   }
 }
+
+export function ALBUM_POST(body) {
+  return {
+    url: API_URL + "/albuns",
+    options: {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(body),
+    }
+  }
+}

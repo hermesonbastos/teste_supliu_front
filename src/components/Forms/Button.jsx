@@ -1,8 +1,14 @@
 import React from "react";
 
-const Button = ({ style="primary", children, ...props }) => {
+const Button = ({ style = false, full = false, children, ...props }) => {
   return (
-    <button className={`btn btn-${style} text-slate-100`} {...props}>
+    <button
+      className={`flex h-fit btn
+      ${style ? style : ""}
+      ${full ? "w-full" : "w-fit"}
+      rounded-lg hover:bg-primary hover:text-white flex-nowrap text-nowrap`}
+      {...props}
+    >
       {children}
     </button>
   );

@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { ALBUM_FAIXAS_GET } from '../../api';
-import useFetch from '../../hooks/useFetch';
+import React from 'react'
 
 const AlbumCard = ({ album }) => {
 
