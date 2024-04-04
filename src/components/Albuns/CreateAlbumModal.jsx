@@ -13,7 +13,6 @@ const CreateAlbumModal = ({ setModal, album_id, reFetch }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-
     console.log(nome, album_id);
     
     async function createFaixa() {
@@ -23,7 +22,7 @@ const CreateAlbumModal = ({ setModal, album_id, reFetch }) => {
       setModal(false);
     }
 
-    createFaixa();
+    if(!nome.error) createFaixa();
   }
 
   return (
