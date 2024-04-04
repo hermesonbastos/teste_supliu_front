@@ -44,3 +44,16 @@ export function FAIXA_DELETE({ id_faixa }) {
     }
   }
 }
+
+export function FAIXA_POST(body) {
+  return {
+    url: API_URL + "/faixas",
+    options: {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(body),
+    }
+  }
+}
