@@ -22,7 +22,7 @@ const AlbumCard = ({ album, reFetch, numFaixas }) => {
       <div className="flex items-center flex-nowrap gap-3">
         <button className="btn hover:text-white transition hover:bg-primary">
           <Link className="flex items-center gap-3" to={`/album/${album.id}`}>
-            <p>{numFaixas} Faixas</p>
+            <p>Acessar {numFaixas} Faixas</p>
             <AudioLines />
           </Link>
         </button>
