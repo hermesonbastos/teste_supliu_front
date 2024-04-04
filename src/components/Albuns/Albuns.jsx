@@ -5,12 +5,13 @@ import { ALBUNS_FAIXAS_GET } from "../../api";
 import Button from "../Forms/Button";
 import { Plus } from "lucide-react";
 import CreateAlbumModal from "./CreateAlbumModal";
+import Warning from "../Helper/Warning";
 
 const Albuns = () => {
   const [albumModal, setAlbumModal] = useState(false);
   const [busca, setBusca] = useState("");
   const [albuns, setAlbuns] = useState(null);
-  const { request, loading } = useFetch();
+  const { request } = useFetch();
 
   async function fetchAlbuns() {
     const { url, options } = ALBUNS_FAIXAS_GET();
@@ -22,8 +23,10 @@ const Albuns = () => {
   useEffect(() => {
     fetchAlbuns();
   }, []);
- 
-  const filteredAlbuns = albuns?.filter((album) => album.nome.toLowerCase().includes(busca.toLowerCase()))
+
+  const filteredAlbuns = albuns?.filter((album) =>
+    album.nome.toLowerCase().includes(busca.toLowerCase()),
+  );
 
   if (!filteredAlbuns) return <p>loading</p>;
   else
@@ -54,6 +57,9 @@ const Albuns = () => {
                 />
               </li>
             ))}
+          {filteredAlbuns && filteredAlbuns.length === 0 && (
+            <Warning>Nenhum álbum adicionado</Warning>
+          )}
         </ul>
       </div>
     );

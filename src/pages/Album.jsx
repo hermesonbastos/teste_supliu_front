@@ -3,10 +3,11 @@ import { Link, useParams } from "react-router-dom";
 import { ALBUM_FAIXAS_GET, ALBUM_GET } from "../api";
 import useFetch from "../hooks/useFetch";
 
-import { Plus, Undo2, Frown } from "lucide-react";
+import { Plus, Undo2 } from "lucide-react";
 import Faixas from "../components/Faixas/Faixas";
 import CreateFaixaModal from "../components/Faixas/CreateFaixaModal";
 import Button from "../components/Forms/Button";
+import Warning from "../components/Helper/Warning";
 
 const Album = () => {
   const { id_album } = useParams();
@@ -36,7 +37,7 @@ const Album = () => {
   if (!faixas || !album) return <p>loading...</p>;
   else
     return (
-      <div className="flex flex-col w-full items-start pt-56 lg:flex-row gap-8">
+      <div className="flex flex-col w-full items-center pt-56 lg:flex-row gap-8">
         {faixaModal && (
           <CreateFaixaModal
             setModal={setFaixaModal}
@@ -60,14 +61,11 @@ const Album = () => {
             Adicionar Faixa <Plus />
           </Button>
         </div>
-        <div className="flex w-full mt-6 lg:mt-0">
+        <div className="flex w-full mt-6 h-full lg:mt-0 items-center">
           {faixas.length > 0 ? (
             <Faixas faixas={faixas} fetchAlbumFaixas={fetchAlbumFaixas} />
           ) : (
-            <div className="flex flex-col items-center w-full">
-              <p className="text-lg font-medium">Nenhuma faixa</p>
-              <Frown />
-            </div>
+            <Warning>Nenhuma faixa adicionada</Warning>
           )}
         </div>
       </div>
