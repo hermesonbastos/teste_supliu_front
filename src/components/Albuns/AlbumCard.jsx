@@ -4,6 +4,8 @@ import useFetch from "../../hooks/useFetch";
 import { ALBUM_DELETE } from "../../api";
 import { Link } from "react-router-dom";
 import Button from "../Forms/Button";
+import ReactLoading from "react-loading";
+import Loading from "../Helper/Loading";
 
 const AlbumCard = ({ album, reFetch, numFaixas }) => {
   const { request, loading } = useFetch();
@@ -21,7 +23,7 @@ const AlbumCard = ({ album, reFetch, numFaixas }) => {
   }
 
   if (loading || !album)
-    return <p className="place-self-center text-xl font-medium">Aguarde...</p>;
+    return <Loading />;
   return (
     <div className="flex gap-2 lg:gap-0 sm:flex-row mx-4 items-center border-solid border-2 border-primary justify-between py-3 px-4 rounded-lg">
       {confirmDeleteModal && (
