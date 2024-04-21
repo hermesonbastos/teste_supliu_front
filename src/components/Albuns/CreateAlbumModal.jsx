@@ -7,22 +7,33 @@ import { ALBUM_POST } from "../../api";
 import useFetch from "../../hooks/useFetch";
 
 const CreateAlbumModal = ({ setModal, reFetch }) => {
-
+  const [cover, setCover] = useState(null);
   const nome = useForm("nome");
   const ano = useForm("ano");
   const { request } = useFetch();
 
+  function handleImageChange({ target }) {
+    console.log(target.files[0]);
+
+    const reader = new FileReader();
+    reader.readAsDataURL(target.files[0]);
+    reader.onload = (e) => {
+      setCover(e.target.result);
+      console.log(img);
+    }
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
-    
+
     async function createAlbum() {
-      const { url, options } = ALBUM_POST({ "nome": nome.value, "ano": ano.value });
+      const { url, options } = ALBUM_POST({ nome: nome.value, cover: cover, ano: ano.value });
       await request(url, options);
       reFetch();
       setModal(false);
     }
 
-    if(!nome.error && !ano.error) createAlbum();
+    if (!nome.error && !ano.error) createAlbum();
   }
 
   return (
@@ -37,9 +48,24 @@ const CreateAlbumModal = ({ setModal, reFetch }) => {
             <X />
           </button>
         </div>
-        <form onSubmit={handleSubmit} className="flex flex-col w-full gap-3 mt-5">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col w-full gap-3 mt-5"
+        >
           <Input label="Nome do álbum" type="text" name="nome" {...nome} />
           <Input label="Ano de lançamento" type="text" name="ano" {...ano} />
+          <div>
+            <label className="btn" for="image-input" id="image-pic">
+              Imagem de capa
+            </label>
+            <input
+              className="hidden"
+              type="file"
+              accept="image/*"
+              id="image-input"
+              onChange={({ target }) => handleImageChange({ target })}
+            />
+          </div>
           <Button full={1}>Adicionar</Button>
         </form>
       </div>
