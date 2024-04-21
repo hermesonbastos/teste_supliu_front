@@ -1,3 +1,5 @@
+## Deploy: [https://pardinho.netlify.app/](https://pardinho.netlify.app/)
+
 ### Guia de Setup
 
 Este projeto utiliza as seguintes tecnologias:
