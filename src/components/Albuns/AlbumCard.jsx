@@ -73,7 +73,7 @@ const AlbumCard = ({ album, reFetch, numFaixas }) => {
           src={
             album?.cover
               ? album.cover
-              : `../../../public/randomalbum${randomDefaultAlbumImage()}.png`
+              : `./public/randomalbum${randomDefaultAlbumImage()}.png`
           }
           alt=""
         />
