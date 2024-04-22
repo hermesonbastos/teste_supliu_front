@@ -52,6 +52,7 @@ const AlbumCard = ({ album, reFetch, numFaixas }) => {
           </div>
         </div>
       )}
+      {album?.cover && <img src={album.cover} alt="" />}
       <div className="flex w-full justify-start gap-3 items-center font-medium">
         <Disc3 className="hidden sm:block" />
         <p className="flex items-center text-xl">{album.nome}</p>
